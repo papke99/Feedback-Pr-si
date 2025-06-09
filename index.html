@@ -5,26 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Feedback zur Präsentation</title>
   <style>
+    @keyframes gradientShift {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
     body {
       font-family: Arial, sans-serif;
-      /* Farbverlauf von hellem Pfirsich zu hellem Rosa */
-      background: linear-gradient(135deg, #ffe7d6, #ffd1c1);
+      /* Animierter Farbverlauf */
+      background: linear-gradient(-45deg, #ffe7d6, #ffd1c1, #ffb6a3, #ff8a75);
+      background-size: 400% 400%;
+      animation: gradientShift 20s ease infinite;
       padding: 1rem;
       max-width: 600px;
       margin: auto;
-      /* Leichtes Muster über das gesamte Body-Element */
+      /* Dezentes Muster */
       background-image:
-        radial-gradient(circle, rgba(255, 255, 255, 0.15) 1px, transparent 1px),
-        radial-gradient(circle, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+        radial-gradient(circle, rgba(255, 255, 255, 0.1) 2px, transparent 2px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.1) 2px, transparent 2px);
       background-position: 0 0, 25px 25px;
       background-size: 50px 50px;
     }
 
     form {
-      background: white;
+      background: rgba(255, 255, 255, 0.95);
       padding: 2rem;
       border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(255, 111, 97, 0.3);
+      box-shadow: 0 8px 20px rgba(255, 111, 97, 0.35);
+      backdrop-filter: saturate(180%) blur(15px);
     }
 
     label {
@@ -88,5 +103,7 @@
     <button type="submit">Feedback absenden</button>
   </form>
 </body>
+</html>
+
 </html>
 
