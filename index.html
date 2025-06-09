@@ -5,41 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Feedback zur Präsentation</title>
   <style>
+    :root {
+      --accent: #ff6f61;
+      --background: #fff8f2;
+    }
+
     body {
-      font-family: "Comic Sans MS", cursive, sans-serif;
-      background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+      font-family: "Segoe UI", sans-serif;
+      background: var(--background);
       margin: 0;
-      padding: 0;
+      padding: 1rem;
       display: flex;
       justify-content: center;
-      align-items: center;
-      min-height: 100vh;
     }
 
     .container {
       background: white;
-      border-radius: 20px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-      padding: 2rem;
-      max-width: 700px;
-      width: 90%;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem;
+      max-width: 600px;
+      width: 100%;
     }
 
     h1 {
       text-align: center;
-      color: #ff6f61;
+      color: var(--accent);
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
     }
 
     .columns {
       display: flex;
-      flex-direction: row;
-      gap: 1rem;
-    }
-
-    .column {
-      flex: 1;
-      display: flex;
       flex-direction: column;
+      gap: 1.5rem;
     }
 
     label {
@@ -50,27 +49,30 @@
 
     textarea {
       resize: vertical;
-      min-height: 150px;
-      border-radius: 10px;
-      border: 2px solid #ffcccb;
+      min-height: 120px;
+      border-radius: 12px;
+      border: 2px solid #ffcfcf;
       padding: 1rem;
       font-size: 1rem;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     button {
-      background: #4caf50;
+      background: var(--accent);
       color: white;
       border: none;
       padding: 1rem;
       font-size: 1.1rem;
-      border-radius: 10px;
+      border-radius: 12px;
       margin-top: 1.5rem;
+      width: 100%;
       cursor: pointer;
       transition: background 0.3s ease;
     }
 
     button:hover {
-      background: #45a049;
+      background: #e05650;
     }
 
     .thanks {
@@ -78,21 +80,29 @@
       text-align: center;
       color: #2e7d32;
       margin-top: 2rem;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    @media (min-width: 768px) {
+      .columns {
+        flex-direction: row;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Feedback zur Präsentation</h1>
+    <h1>🎤 Feedback zur Präsentation</h1>
     <form id="feedbackForm">
       <div class="columns">
         <div class="column">
-          <label for="tops">🌟 Tops (Was war gut?)</label>
-          <textarea id="tops" name="tops" required></textarea>
+          <label for="tops">🌟 Tops</label>
+          <textarea id="tops" name="tops" placeholder="Was war gut?" required></textarea>
         </div>
         <div class="column">
-          <label for="tipps">💡 Tipps (Was können wir verbessern?)</label>
-          <textarea id="tipps" name="tipps" required></textarea>
+          <label for="tipps">💡 Tipps</label>
+          <textarea id="tipps" name="tipps" placeholder="Was könnte verbessert werden?" required></textarea>
         </div>
       </div>
       <button type="submit">Feedback senden</button>
@@ -103,7 +113,6 @@
   <script>
     document.getElementById('feedbackForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      // Hier könntest du die Daten an ein Backend oder Google Form senden
       document.getElementById('thanksMessage').style.display = 'block';
       e.target.reset();
     });
