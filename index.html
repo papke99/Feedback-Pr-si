@@ -2,8 +2,8 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Feedback zur Präsentation 'Farbweesen'</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Feedback zur Präsentation</title>
   <style>
     :root {
       --accent: #ff6f61;
@@ -11,12 +11,13 @@
     }
 
     body {
-      font-family: "Segoe UI", sans-serif;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       background: var(--background);
       margin: 0;
       padding: 1rem;
       display: flex;
       justify-content: center;
+      min-height: 100vh;
     }
 
     .container {
@@ -24,8 +25,9 @@
       border-radius: 16px;
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
       padding: 1.5rem;
-      max-width: 600px;
+      max-width: 700px;
       width: 100%;
+      box-sizing: border-box;
     }
 
     h1 {
@@ -35,87 +37,41 @@
       margin-bottom: 1.5rem;
     }
 
-    .columns {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    label {
-      font-weight: bold;
-      margin-bottom: 0.5rem;
-      color: #333;
-    }
-
-    textarea {
-      resize: vertical;
-      min-height: 120px;
-      border-radius: 12px;
-      border: 2px solid #ffcfcf;
-      padding: 1rem;
-      font-size: 1rem;
+    /* Container für responsives iframe */
+    .iframe-container {
+      position: relative;
       width: 100%;
-      box-sizing: border-box;
-    }
-
-    button {
-      background: var(--accent);
-      color: white;
-      border: none;
-      padding: 1rem;
-      font-size: 1.1rem;
+      padding-bottom: 85%; /* Höhe in Relation zur Breite anpassen */
+      height: 0;
+      overflow: hidden;
       border-radius: 12px;
-      margin-top: 1.5rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .iframe-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    button:hover {
-      background: #e05650;
-    }
-
-    .thanks {
-      display: none;
-      text-align: center;
-      color: #2e7d32;
-      margin-top: 2rem;
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
-
-    @media (min-width: 768px) {
-      .columns {
-        flex-direction: row;
-      }
+      height: 100%;
+      border: 0;
     }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>🎤 Feedback zur Präsentation</h1>
-    <form id="feedbackForm">
-      <div class="columns">
-        <div class="column">
-          <label for="tops">🌟 Tops</label>
-          <textarea id="tops" name="tops" placeholder="Was war gut?" required></textarea>
-        </div>
-        <div class="column">
-          <label for="tipps">💡 Tipps</label>
-          <textarea id="tipps" name="tipps" placeholder="Was könnte verbessert werden?" required></textarea>
-        </div>
-      </div>
-      <button type="submit">Feedback senden</button>
-      <div class="thanks" id="thanksMessage">🎉 Danke für dein Feedback!</div>
-    </form>
+    <div class="iframe-container">
+      <iframe 
+        src="https://docs.google.com/forms/d/e/1FAIpQLSdBmE7A7wAGCsEySAZqFR0Elpcdv9MWDUaz5WTh9wwlg4Heug/viewform?embedded=true" 
+        frameborder="0" 
+        marginheight="0" 
+        marginwidth="0"
+        >Wird geladen…</iframe>
+    </div>
   </div>
+</body>
+</html>
 
-  <script>
-    document.getElementById('feedbackForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      document.getElementById('thanksMessage').style.display = 'block';
-      e.target.reset();
-    });
-  </script>
 </body>
 </html>
