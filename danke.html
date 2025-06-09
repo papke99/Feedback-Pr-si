@@ -3,54 +3,94 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Danke für dein Feedback!</title>
+  <title>Danke für dein Feedback</title>
   <style>
+    @keyframes gradientFlow {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background: #fff8f2;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: linear-gradient(120deg, #ffe0db, #ffd1f5, #d1f2ff);
+      background-size: 300% 300%;
+      animation: gradientFlow 30s ease infinite;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      margin: 0;
-      color: #ff6f61;
       text-align: center;
       padding: 1rem;
     }
+
     .container {
-      max-width: 400px;
-      background: white;
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(15px) saturate(160%);
       border-radius: 16px;
       padding: 2rem;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      color: #333;
     }
+
     h1 {
       font-size: 2rem;
       margin-bottom: 1rem;
     }
+
     p {
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
+      font-size: 1.2rem;
+      color: #444;
     }
-    a {
+
+    a.button {
       display: inline-block;
-      padding: 0.75rem 1.5rem;
-      background: #ff6f61;
-      color: white;
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      background: linear-gradient(to bottom, #ffffffcc, #ff6f61cc);
+      border: 1px solid #ffb1a8;
+      color: #333;
       text-decoration: none;
-      border-radius: 12px;
-      font-weight: bold;
-      transition: background 0.3s ease;
+      font-weight: 600;
+      border-radius: 10px;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.8),
+        0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
     }
-    a:hover {
-      background: #e05a4f;
+
+    a.button:hover {
+      background: linear-gradient(to bottom, #fff, #ff6f61);
+      transform: translateY(-2px);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.9),
+        0 6px 18px rgba(0, 0, 0, 0.15);
+    }
+
+    a.button:active {
+      transform: translateY(0);
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Danke für dein Feedback! 🙌</h1>
-    <a href="index.html">Zurück zur Umfrage</a>
+    <h1>💌 Vielen Dank!</h1>
+    <p>Dein Feedback wurde erfolgreich übermittelt. <br />Wir wissen deine Rückmeldung sehr zu schätzen!</p>
+    <a class="button" href="index.html">Zurück zur Startseite</a>
   </div>
 </body>
 </html>
