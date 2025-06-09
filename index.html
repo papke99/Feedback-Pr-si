@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Feedback zur Präsentation</title>
+  <style>
+    body {
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      padding: 2rem;
+      max-width: 700px;
+      width: 90%;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ff6f61;
+    }
+
+    .columns {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+    }
+
+    .column {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      color: #333;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 150px;
+      border-radius: 10px;
+      border: 2px solid #ffcccb;
+      padding: 1rem;
+      font-size: 1rem;
+    }
+
+    button {
+      background: #4caf50;
+      color: white;
+      border: none;
+      padding: 1rem;
+      font-size: 1.1rem;
+      border-radius: 10px;
+      margin-top: 1.5rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #45a049;
+    }
+
+    .thanks {
+      display: none;
+      text-align: center;
+      color: #2e7d32;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Feedback zur Präsentation</h1>
+    <form id="feedbackForm">
+      <div class="columns">
+        <div class="column">
+          <label for="tops">🌟 Tops (Was war gut?)</label>
+          <textarea id="tops" name="tops" required></textarea>
+        </div>
+        <div class="column">
+          <label for="tipps">💡 Tipps (Was kann besser werden?)</label>
+          <textarea id="tipps" name="tipps" required></textarea>
+        </div>
+      </div>
+      <button type="submit">Feedback senden</button>
+      <div class="thanks" id="thanksMessage">🎉 Danke für dein Feedback!</div>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Hier könntest du die Daten an ein Backend oder Google Form senden
+      document.getElementById('thanksMessage').style.display = 'block';
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>
