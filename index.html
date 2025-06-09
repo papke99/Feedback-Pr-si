@@ -7,16 +7,33 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #fff8f2;
+      /* Farbverlauf von hellem Pfirsich zu hellem Rosa */
+      background: linear-gradient(135deg, #ffe7d6, #ffd1c1);
       padding: 1rem;
       max-width: 600px;
       margin: auto;
+      /* Leichtes Muster über das gesamte Body-Element */
+      background-image:
+        radial-gradient(circle, rgba(255, 255, 255, 0.15) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+      background-position: 0 0, 25px 25px;
+      background-size: 50px 50px;
     }
+
+    form {
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(255, 111, 97, 0.3);
+    }
+
     label {
       font-weight: bold;
       margin-top: 1rem;
       display: block;
+      color: #b34029;
     }
+
     textarea {
       width: 100%;
       min-height: 120px;
@@ -24,16 +41,29 @@
       border-radius: 8px;
       border: 2px solid #ff6f61;
       font-size: 1rem;
+      resize: vertical;
+      transition: border-color 0.3s ease;
     }
+
+    textarea:focus {
+      border-color: #b34029;
+      outline: none;
+    }
+
     button {
       margin-top: 1.5rem;
-      background-color: #ff6f61;
+      background-color: #b34029;
       color: white;
       border: none;
       padding: 1rem 2rem;
       border-radius: 12px;
       font-size: 1.1rem;
       cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #ff6f61;
     }
   </style>
 </head>
@@ -60,7 +90,3 @@
 </body>
 </html>
 
-
-
-</body>
-</html>
